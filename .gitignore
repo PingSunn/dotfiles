@@ -1,0 +1,13 @@
+# Never commit secrets / runtime state
+.DS_Store
+
+# Claude runtime + secrets (explicitly NOT backed up)
+.claude.json
+claude/sessions/
+claude/projects/
+claude/shell-snapshots/
+claude/backups/
+claude/**/*.log
+
+# Ghostty junk
+config/ghostty/config.ghostty
