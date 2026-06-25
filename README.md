@@ -8,12 +8,19 @@ Personal config backup for this Mac (`pweraburudpo`).
 | ------------------------------------- | ----------------------------------------------------- | ----------------- |
 | `config/starship.toml`                | `~/.config/starship.toml`                             | symlink           |
 | `config/ghostty/config`               | `~/.config/ghostty/config`                            | symlink           |
+| `claude/CLAUDE.md`                    | `~/.claude/CLAUDE.md` (global instructions)           | copy (snapshot)   |
+| `claude/settings.json`                | `~/.claude/settings.json`                             | copy (snapshot)   |
+| `claude/statusline-command.sh`        | `~/.claude/statusline-command.sh`                     | copy (snapshot)   |
+| `claude/agents/`                      | `~/.claude/agents/` (custom subagents)                | copy (snapshot)   |
+| `claude/skills/`                      | `~/.claude/skills/` (custom skills)                   | copy (snapshot)   |
 | `claude/plugins/*.json`               | `~/.claude/plugins/`                                  | copy (snapshot)   |
 | `Brewfile`                            | Homebrew formulae + casks                              | `brew bundle`     |
 
 **Not** backed up (secrets / runtime state, see `.gitignore`):
-`~/.claude.json`, Claude `sessions/` `projects/` `shell-snapshots/` `backups/`.
-Claude `memory/` and `plans/` are currently empty — add them here if they fill up.
+`~/.claude.json`, Claude `sessions/` `projects/` `shell-snapshots/` `backups/`
+`cache/` `session-env/` `history.jsonl` and `*-cache.json`.
+Claude `plans/` (work artifacts) and `memory/` are intentionally left out —
+add them here if you want them tracked.
 
 ## Restore on a new machine
 

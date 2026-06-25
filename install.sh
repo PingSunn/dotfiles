@@ -22,11 +22,24 @@ copy() { # copy <repo-relative-src> <dest>
   echo "  copied $dest"
 }
 
+copydir() { # copydir <repo-relative-src-dir> <dest-dir>
+  local src="$DF/$1" dest="$2"
+  mkdir -p "$dest"
+  cp -R "$src/." "$dest/"
+  echo "  copied $dest/"
+}
+
 echo "==> Symlinking editable configs"
 link config/starship.toml      "$HOME/.config/starship.toml"
 link config/ghostty/config     "$HOME/.config/ghostty/config"
 
-echo "==> Restoring Claude plugin config (snapshot copy)"
+echo "==> Restoring Claude config (snapshot copy)"
+copy claude/CLAUDE.md                       "$HOME/.claude/CLAUDE.md"
+copy claude/settings.json                   "$HOME/.claude/settings.json"
+copy claude/statusline-command.sh           "$HOME/.claude/statusline-command.sh"
+chmod +x "$HOME/.claude/statusline-command.sh"
+copydir claude/agents                       "$HOME/.claude/agents"
+copydir claude/skills                       "$HOME/.claude/skills"
 copy claude/plugins/installed_plugins.json  "$HOME/.claude/plugins/installed_plugins.json"
 copy claude/plugins/known_marketplaces.json "$HOME/.claude/plugins/known_marketplaces.json"
 

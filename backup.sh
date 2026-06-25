@@ -4,7 +4,13 @@ set -euo pipefail
 
 DF="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "==> Claude plugin config"
+echo "==> Claude config"
+cp "$HOME/.claude/CLAUDE.md"                        "$DF/claude/CLAUDE.md"
+cp "$HOME/.claude/settings.json"                    "$DF/claude/settings.json"
+cp "$HOME/.claude/statusline-command.sh"            "$DF/claude/statusline-command.sh"
+rm -rf "$DF/claude/agents" "$DF/claude/skills"
+cp -R "$HOME/.claude/agents" "$DF/claude/agents"
+cp -R "$HOME/.claude/skills" "$DF/claude/skills"
 cp "$HOME/.claude/plugins/installed_plugins.json"  "$DF/claude/plugins/installed_plugins.json"
 cp "$HOME/.claude/plugins/known_marketplaces.json" "$DF/claude/plugins/known_marketplaces.json"
 
