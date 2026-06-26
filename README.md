@@ -6,6 +6,7 @@ Personal config backup for this Mac (`pweraburudpo`).
 
 | Path in repo                          | Lives at                                              | How it's restored |
 | ------------------------------------- | ----------------------------------------------------- | ----------------- |
+| `config/zshrc`                        | `~/.zshrc`                                             | symlink           |
 | `config/starship.toml`                | `~/.config/starship.toml`                             | symlink           |
 | `config/ghostty/config`               | `~/.config/ghostty/config`                            | symlink           |
 | `claude/CLAUDE.md`                    | `~/.claude/CLAUDE.md` (global instructions)           | copy (snapshot)   |

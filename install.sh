@@ -30,6 +30,7 @@ copydir() { # copydir <repo-relative-src-dir> <dest-dir>
 }
 
 echo "==> Symlinking editable configs"
+link config/zshrc              "$HOME/.zshrc"
 link config/starship.toml      "$HOME/.config/starship.toml"
 link config/ghostty/config     "$HOME/.config/ghostty/config"
 

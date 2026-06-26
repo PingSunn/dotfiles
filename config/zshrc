@@ -1,0 +1,25 @@
+# ~/.zshrc — interactive shell config
+# (brew shellenv is set in ~/.zprofile)
+
+# --- completions (zsh-completions adds to fpath; must precede compinit) ---
+if type brew >/dev/null 2>&1; then
+  fpath=("$(brew --prefix)/share/zsh-completions" $fpath)
+fi
+autoload -Uz compinit && compinit
+
+# --- zsh-autosuggestions ---
+[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] \
+  && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# --- fzf key bindings + completion (Ctrl+R / Ctrl+T) ---
+command -v fzf >/dev/null 2>&1 && source <(fzf --zsh)
+
+# --- zoxide (smarter cd) ---
+command -v zoxide >/dev/null 2>&1 && eval "$(zoxide init zsh)"
+
+# --- starship prompt ---
+command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
+
+# --- zsh-syntax-highlighting (must be sourced LAST) ---
+[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] \
+  && source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

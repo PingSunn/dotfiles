@@ -16,8 +16,9 @@ cp "$HOME/.claude/plugins/known_marketplaces.json" "$DF/claude/plugins/known_mar
 
 # starship.toml and ghostty/config are symlinks (see install.sh) — tracked live,
 # but copy them too in case this machine wasn't set up via install.sh.
-echo "==> starship / ghostty (only if not already a symlink into this repo)"
+echo "==> zshrc / starship / ghostty (only if not already a symlink into this repo)"
 for pair in \
+  "$HOME/.zshrc:$DF/config/zshrc" \
   "$HOME/.config/starship.toml:$DF/config/starship.toml" \
   "$HOME/.config/ghostty/config:$DF/config/ghostty/config"; do
   src="${pair%%:*}"; dst="${pair##*:}"
